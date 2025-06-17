@@ -117,9 +117,7 @@ Heroku will use `Procfile` and `setup.sh` to launch the app.
 
 ## 📸 Screenshot
 
-> Replace with your GitHub-hosted image (or use the one already uploaded):
 
-![Preview](Screenshot.png)
 
 ---
 
