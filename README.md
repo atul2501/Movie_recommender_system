@@ -10,12 +10,6 @@ A content-based movie recommender system built with **Python**, **Streamlit**, a
 
 ---
 
-## 🖼️ Preview
-
-![App Screenshot](https://raw.githubusercontent.com/atul2501/Movie_Recommender_System/main/Screenshot.png)
-
----
-
 ## 🚀 Features
 
 - 🔎 Select any movie from the dropdown
@@ -112,12 +106,6 @@ git push heroku main
 ```
 
 Heroku will use `Procfile` and `setup.sh` to launch the app.
-
----
-
-## 📸 Screenshot
-
-
 
 ---
 
