@@ -1,9 +1,9 @@
 import streamlit as st
 import  pickle
 import pandas as pd
-# import requests
-# import gdown
-# import os
+import requests
+import gdown
+import os
 
 import requests
 import time
@@ -24,26 +24,6 @@ def fetch_poster(movie_id):
             print(f"[Attempt {attempt + 3}] Error fetching poster for movie_id {movie_id}: {e}")
     return "https://via.placeholder.com/500x750?text=Error"
 
-
-# def fetch_poster(movie_id):
-#     try:
-#         response = requests.get(
-#             f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=c38986c04eeba139e93aae724f375443&language=en-US'
-#         )
-#         response.raise_for_status()  # Raises an error if response code is not 200
-#         data = response.json()
-#         poster_path = data.get('poster_path')
-#         if not poster_path:
-#             return "https://via.placeholder.com/500x750?text=No+Image"
-#         full_path = "https://image.tmdb.org/t/p/w500" + poster_path
-#         return full_path
-#     except Exception as e:
-#         print(f"Error fetching poster for movie_id {movie_id}: {e}")
-#         return "https://via.placeholder.com/500x750?text=Error"
-
-
-
-
 def recommend(movie):
     movie_index = movies[movies['title'] == movie].index[0]
     distances = similarity[movie_index]
@@ -63,12 +43,12 @@ def recommend(movie):
 movies_dict = pickle.load(open('movies_dict.pkl','rb'))
 movies=pd.DataFrame(movies_dict)
 
-similarity = pickle.load(open('similarity.pkl','rb'))
-# # Download only if not exists (Heroku ephemeral storage)
-# if not os.path.exists("similarity.pkl"):
-#     gdown.download("https://drive.google.com/uc?id=1qEx0m6Dh5kjZ51UvfWuRF1e_mZW0BTr-", "similarity.pkl", quiet=False)
+#similarity = pickle.load(open('similarity.pkl','rb'))
+if not os.path.exists("similarity.pkl"):
+    
+    gdown.download("https://drive.google.com/uc?id=1qEx0m6Dh5kjZ51UvfWuRF1e_mZW0BTr-", "similarity.pkl", quiet=False)
 
-# similarity = pickle.load(open("similarity.pkl", "rb"))
+similarity = pickle.load(open("similarity.pkl", "rb"))
 
 st.header('Movie Recommender System')
 
